@@ -1,0 +1,15 @@
+---
+- name: Add redis PPA and update apt cache
+  apt_repository:
+    repo: ppa:rwky/redis
+    update_cache: yes
+    state: present
+  tags:
+      - install
+
+- name: install required system packages
+  apt: name={{ item }} state=latest
+  with_items:
+      - redis-server
+  tags:
+      - install
