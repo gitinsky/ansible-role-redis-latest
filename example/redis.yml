@@ -2,4 +2,4 @@
 - hosts: redis
   sudo: yes
   roles:
-  - role: redis-lates
+  - role: redis-latest
