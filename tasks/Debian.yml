@@ -6,6 +6,7 @@
     state: present
   tags:
       - install
+  when: "not (ansible_distribution == 'Ubuntu' and (ansible_distribution_version|version_compare(14.04, '>')))"
 
 - name: install required system packages
   apt: name={{ item }} state=latest
